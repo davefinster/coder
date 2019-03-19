@@ -11,6 +11,7 @@ RUN apt-get update && \
 USER coder
 WORKDIR /home/coder
 RUN mkdir /home/coder/.code-server && \
-	mkdir -p /home/coder/.code-server/extensions
+	mkdir -p /home/coder/.code-server/extensions && \
+	mkdir projects
 
 ENTRYPOINT ["code-server"]
