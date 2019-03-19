@@ -6,11 +6,7 @@ RUN apt-get update && \
 	echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
 	echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && \
 	chmod 0440 /etc/sudoers.d/user && \
-	locale-gen en_US.UTF-8 && \
-	mkdir -p /root/.code-server/Workspaces && \
-	chown -R 3000 /root/.code-server && \
-	chmod -R 777 /root/.code-server && \
-	chmod 755 /root
+	locale-gen en_US.UTF-8 
 
 USER coder
 WORKDIR /home/coder
