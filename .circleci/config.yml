@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Configure Docker
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - type: shell
+        name: Build and Ship Usermode Image
+        command: |
+          cd usermode
+          docker build -t davefinster/coder:usermode .
+          docker push davefinster/coder:usermode
+      - type: shell
+        name: Build and Ship Official VSCode Image
+        command: |
+          cd official-vscode
+          docker build -t davefinster/coder:official-vscode .
+          docker push davefinster/coder:official-vscode
+      - type: shell
+        name: Build and Ship go Image
+        command: |
+          cd go
+          docker build -t davefinster/coder:go .
+          docker push davefinster/coder:go
+      - type: shell
+        name: Build and Ship JS Image
+        command: |
+          cd js
+          docker build -t davefinster/coder:js .
+          docker push davefinster/coder:js

@@ -1,0 +1,58 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: coder-certificate-acme
+spec:
+  secretName: coder-secret
+  dnsNames:
+  - coder.<domain>
+  acme:
+    config:
+    - ingressClass: nginx
+      domains:
+      - coder.<domain>
+      http01: {}
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coder
+  labels:
+    name: coder
+spec:
+  clusterIP: None
+  ports:
+  - name: service
+    port: 8443
+    targetPort: service
+  selector:
+    app: coder
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: coder-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/auth-tls-secret: default/auth-tls-chain
+    nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"
+    nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"
+spec:
+  tls:
+  - hosts:
+    - coder.<domain>
+    secretName: coder-secret
+  rules:
+  - host: coder.<domain>
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: coder
+          servicePort: service

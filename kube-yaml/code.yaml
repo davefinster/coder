@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: coder
+  labels:
+    app: coder
+spec:
+  containers:
+  - name: coder
+    imagePullPolicy: Always
+    image: davefinster/coder:go
+    command: ["code-server"]
+    args:
+    - --allow-http
+    - --no-auth
+    - --port=8440
+    - --data-dir=/home/coder/.code-server
+    - /home/coder
+    workingDir: /home/coder
+    env: []
+    ports:
+    - name: service
+      containerPort: 8440
+    volumeMounts:
+    - name: source
+      mountPath: /home/coder/project
+      subPath: <subpath>
+  volumes:
+  - name: source
+    persistentVolumeClaim:
+      claimName: cr-volume
