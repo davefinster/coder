@@ -27,5 +27,6 @@ RUN mkdir -p /home/coder/go && \
 	go get -u golang.org/x/tools/cmd/godoc && \
 	go get -u golang.org/x/lint/golint && \
 	go get -u github.com/go-delve/delve/cmd/dlv && \
-	go get -u github.com/sqs/goreturns
+	go get -u github.com/sqs/goreturns && \
+	sudo chown -R 3000 .code-server
 
