@@ -28,5 +28,6 @@ RUN mkdir -p /home/coder/go && \
 	go get -u golang.org/x/lint/golint && \
 	go get -u github.com/go-delve/delve/cmd/dlv && \
 	go get -u github.com/sqs/goreturns && \
-	sudo chown -R 3000 .code-server
+	sudo chown -R 3000 .code-server && \
+	curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
