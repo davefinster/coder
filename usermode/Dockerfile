@@ -1,5 +1,4 @@
-#FROM codercom/code-server
-FROM davefinster/coder:source
+FROM codercom/code-server
 
 RUN apt-get update && \
 	apt-get install -y locales net-tools curl build-essential git sudo && \
