@@ -10,7 +10,7 @@ RUN curl -O https://dl.google.com/go/go1.12.linux-amd64.tar.gz && \
 
 COPY --from=0 /root/.vscode/extensions /home/coder/.code-server/extensions
 
-ENV PATH "$PATH:/root/go/bin:/usr/local/go/bin"
+ENV PATH "$PATH:/home/coder/go/bin:/usr/local/go/bin"
 ENV GOPATH "/home/coder/go"
 
 RUN mkdir -p /home/coder/go && \
