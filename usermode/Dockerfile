@@ -1,3 +1,7 @@
+FROM davefinster/coder:official-vscode
+
+RUN code --user-data-dir=/root --install-extension zhuangtongfa.material-theme
+
 FROM codercom/code-server
 
 RUN apt-get update && \
@@ -13,5 +17,9 @@ WORKDIR /home/coder
 RUN mkdir /home/coder/.code-server && \
 	mkdir -p /home/coder/.code-server/extensions && \
 	mkdir projects
+
+COPY --from=0 /root/.vscode/extensions /home/coder/.code-server/extensions
+
+RUN sudo chown -R 3000 .code-server
 
 ENTRYPOINT ["code-server"]
