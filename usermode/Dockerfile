@@ -15,10 +15,13 @@ RUN apt-get update && \
 USER coder
 WORKDIR /home/coder
 RUN mkdir /home/coder/.code-server && \
+	mkdir -p /home/coder/.code-server/User && \
 	mkdir -p /home/coder/.code-server/extensions && \
 	mkdir projects
 
 COPY --from=0 /root/.vscode/extensions /home/coder/.code-server/extensions
+
+COPY ./settings.json /home/coder/.code-server/User/settings.json
 
 RUN sudo chown -R 3000 .code-server
 
