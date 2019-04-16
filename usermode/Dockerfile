@@ -1,6 +1,7 @@
 FROM davefinster/coder:official-vscode
 
-RUN code --user-data-dir=/root --install-extension zhuangtongfa.material-theme
+RUN code --user-data-dir=/root --install-extension zhuangtongfa.material-theme && \
+	code --user-data-dir=/root --install-extension zxh404.vscode-proto3
 
 FROM codercom/code-server
 
