@@ -7,4 +7,4 @@ RUN curl -O https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz && \
 
 ENV PATH "$PATH:/node/bin"
 
-ENTRYPOINT ["code-server"];
+ENTRYPOINT ["dumb-init", "code-server"]

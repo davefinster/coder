@@ -7,7 +7,7 @@ FROM codercom/code-server
 
 RUN apt-get update && \
 	apt-get install -y locales net-tools curl build-essential git sudo unzip && \
-	adduser --disabled-password --ingroup sudo -u 3000 --gecos '' coder && \
+	adduser --disabled-password --ingroup sudo -u 3000 --gecos '' code && \
 	echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
 	echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && \
 	chmod 0440 /etc/sudoers.d/user && \
@@ -18,17 +18,17 @@ RUN apt-get update && \
 	mv include/* /usr/local/include && \
 	rm -rf protoc-3.6.0-linux-x86_64.zip bin include readme.txt
 
-USER coder
-WORKDIR /home/coder
-RUN mkdir /home/coder/.code-server && \
-	mkdir -p /home/coder/.code-server/User && \
-	mkdir -p /home/coder/.code-server/extensions && \
+USER code
+WORKDIR /home/code
+RUN mkdir /home/code/.code-server && \
+	mkdir -p /home/code/.code-server/User && \
+	mkdir -p /home/code/.code-server/extensions && \
 	mkdir projects
 
-COPY --from=0 /root/.vscode/extensions /home/coder/.code-server/extensions
+COPY --from=0 /root/.vscode/extensions /home/code/.code-server/extensions
 
-COPY ./settings.json /home/coder/.code-server/User/settings.json
+COPY ./settings.json /home/code/.code-server/User/settings.json
 
 RUN sudo chown -R 3000 .code-server
 
-ENTRYPOINT ["code-server"]
+ENTRYPOINT ["dumb-init", "code-server"]

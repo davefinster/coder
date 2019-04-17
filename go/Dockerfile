@@ -8,14 +8,14 @@ RUN curl -O https://dl.google.com/go/go1.12.linux-amd64.tar.gz && \
 	sudo tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz && \
 	rm go1.12.linux-amd64.tar.gz 
 
-COPY --from=0 /root/.vscode/extensions /home/coder/.code-server/extensions
+COPY --from=0 /root/.vscode/extensions /home/code/.code-server/extensions
 
-ENV PATH "$PATH:/home/coder/go/bin:/usr/local/go/bin"
-ENV GOPATH "/home/coder/go"
+ENV PATH "$PATH:/home/code/go/bin:/usr/local/go/bin"
+ENV GOPATH "/home/code/go"
 
-RUN mkdir -p /home/coder/go && \
+RUN mkdir -p /home/code/go && \
 	go get -u github.com/stamblerre/gocode && \
-	mv /home/coder/go/bin/gocode /home/coder/go/bin/gocode-gomod && \
+	mv /home/code/go/bin/gocode /home/code/go/bin/gocode-gomod && \
 	go get -u github.com/mdempsky/gocode && \
 	go get -u github.com/ramya-rao-a/go-outline && \
 	go get -u github.com/newhook/go-symbols && \
