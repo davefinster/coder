@@ -5,6 +5,10 @@ RUN code --user-data-dir=/root --install-extension zhuangtongfa.material-theme &
 
 FROM codercom/code-server
 
+USER root
+
+WORKDIR /root
+
 RUN apt-get update && \
 	apt-get install -y locales net-tools curl build-essential git sudo unzip && \
 	adduser --disabled-password --ingroup sudo -u 3000 --gecos '' code && \
