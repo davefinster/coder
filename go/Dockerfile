@@ -28,6 +28,7 @@ RUN mkdir -p /home/code/go && \
 	go get -u golang.org/x/lint/golint && \
 	go get -u github.com/go-delve/delve/cmd/dlv && \
 	go get -u github.com/sqs/goreturns && \
+	go get -u github.com/golang/protobuf/protoc-gen-go && \
 	sudo chown -R 3000 .code-server && \
 	curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
