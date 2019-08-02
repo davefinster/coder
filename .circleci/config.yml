@@ -16,7 +16,7 @@ jobs:
       - type: shell
         name: Build and Ship Usermode Image
         command: |
-          cd usermode
+          cd base
           docker build -t davefinster/coder:base .
           docker push davefinster/coder:base
       - type: shell
