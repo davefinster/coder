@@ -1,4 +1,6 @@
-FROM davefinster/coder:usermode
+FROM davefinster/coder:base
+
+WORKDIR /home/coder
 
 RUN curl -O https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz && \
 	tar xf node-v10.15.3-linux-x64.tar.xz && \
@@ -9,5 +11,7 @@ RUN curl -O https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz && \
 	sudo chmod +x /usr/local/bin/protoc-gen-grpc-web
 
 ENV PATH "$PATH:/node/bin"
+
+WORKDIR /home/coder/projects
 
 ENTRYPOINT ["dumb-init", "code-server"]
