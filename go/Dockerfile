@@ -34,4 +34,4 @@ RUN mkdir -p ./go && \
 	sudo chown -R coder ./.code-server && \
 	curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
-WORKDIR /home/coder/projects
+WORKDIR /home/coder/project
