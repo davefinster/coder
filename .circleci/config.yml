@@ -31,3 +31,9 @@ jobs:
           cd js
           docker build -t davefinster/coder:js .
           docker push davefinster/coder:js
+      - type: shell
+        name: Build and Ship Latex Image
+        command: |
+          cd latex
+          docker build -t davefinster/coder:latex .
+          docker push davefinster/coder:latex
