@@ -10,8 +10,7 @@ COPY --from=0 /root/.vscode/extensions ./.code-server/extensions
 
 RUN sudo apt-get update && sudo apt-get -y install software-properties-common && \
     sudo add-apt-repository ppa:jonathonf/texlive && \
-    export DEBIAN_FRONTEND=noninteractive && \
-    sudo apt-get install -y tzdata && \
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata && \
     sudo apt-get update && sudo apt-get install -y texlive-full && \
     sudo chown -R coder ./.code-server
 
