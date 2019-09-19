@@ -1,6 +1,6 @@
 FROM davefinster/coder:official-vscode
 
-RUN code --user-data-dir=/root --install-extension latex-workshop
+RUN code --user-data-dir=/root --install-extension James-Yu.latex-workshop
 
 FROM davefinster/coder:base
 
