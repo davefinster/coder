@@ -8,9 +8,9 @@ WORKDIR /home/coder
 
 COPY --from=0 /root/.vscode/extensions ./.code-server/extensions
 
-RUN sudo apt-get update && sudo apt-get install software-properties-common && \
+RUN sudo apt-get update && sudo apt-get -y install software-properties-common && \
     sudo add-apt-repository ppa:jonathonf/texlive && \
-    sudo apt update && sudo apt install texlive-full && \
+    sudo apt update && sudo apt install -y texlive-full && \
     sudo chown -R coder ./.code-server
 
 WORKDIR /home/coder/project
