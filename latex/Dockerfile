@@ -1,6 +1,8 @@
 FROM davefinster/coder:official-vscode
 
-RUN code --user-data-dir=/root --install-extension James-Yu.latex-workshop
+RUN curl -O https://marketplace.visualstudio.com/_apis/public/gallery/publishers/James-Yu/vsextensions/latex-workshop/6.5.1/vspackage && \
+    cat vspackage | gunzip > latex-workshop.vsix && \
+    code --user-data-dir=/root --install-extension latex-workshop.vsix
 
 FROM davefinster/coder:base
 
