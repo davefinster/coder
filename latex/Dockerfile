@@ -8,12 +8,12 @@ FROM davefinster/coder:base
 
 WORKDIR /home/coder
 
-COPY --from=0 /root/.vscode/extensions ./.code-server/extensions
+COPY --from=0 /root/.vscode/extensions /home/coder/.local/share/code-server/extensions
 
 RUN sudo apt-get update && sudo apt-get -y install software-properties-common && \
     sudo add-apt-repository ppa:jonathonf/texlive && \
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata && \
     sudo apt-get update && sudo apt-get install -y texlive-full fonts-roboto && \
-    sudo chown -R coder ./.code-server
+    sudo chown -R coder /home/coder/.local/share/code-server/extensions
 
 WORKDIR /home/coder/project

@@ -24,15 +24,14 @@ RUN sudo apt-get update && \
   	sudo dpkg -i /tmp/libpng12.deb && \
   	rm /tmp/libpng12.deb
 
-RUN mkdir ./.code-server && \
-	mkdir -p ./.code-server/User && \
-	mkdir -p ./.code-server/extensions
+RUN mkdir -p /home/coder/.local/share/code-server/extensions && \
+	mkdir -p /home/coder/.local/share/code-server/User
 
-COPY --from=0 /root/.vscode/extensions ./.code-server/extensions
+COPY --from=0 /root/.vscode/extensions /home/coder/.local/share/code-server/extensions
 
-COPY ./settings.json .code-server/User/settings.json
+COPY ./settings.json /home/coder/.local/share/code-server/User/settings.json
 
-RUN sudo chown -R coder ./.code-server
+RUN sudo chown -R coder /home/coder/.local
 
 WORKDIR /home/coder/project
 

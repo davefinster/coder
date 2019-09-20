@@ -10,7 +10,7 @@ RUN curl -O https://dl.google.com/go/go1.12.linux-amd64.tar.gz && \
 	sudo tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz && \
 	rm go1.12.linux-amd64.tar.gz 
 
-COPY --from=0 /root/.vscode/extensions ./.code-server/extensions
+COPY --from=0 /root/.vscode/extensions /home/coder/.local/share/code-server/extensions
 
 ENV PATH "$PATH:/home/coder/go/bin:/usr/local/go/bin"
 ENV GOPATH "/home/coder/go"
@@ -31,7 +31,7 @@ RUN mkdir -p ./go && \
 	go get -u github.com/go-delve/delve/cmd/dlv && \
 	go get -u github.com/sqs/goreturns && \
 	go get -u github.com/golang/protobuf/protoc-gen-go && \
-	sudo chown -R coder ./.code-server && \
+	sudo chown -R coder /home/coder/.local/share/code-server/extensions && \
 	curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
 WORKDIR /home/coder/project
