@@ -3,7 +3,7 @@ FROM davefinster/coder:official-vscode
 RUN code --user-data-dir=/root --install-extension zhuangtongfa.material-theme && \
 	code --user-data-dir=/root --install-extension zxh404.vscode-proto3
 
-FROM codercom/code-server
+FROM codercom/code-server:v2
 
 WORKDIR /home/coder
 
