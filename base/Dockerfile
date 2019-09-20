@@ -19,7 +19,10 @@ RUN sudo apt-get update && \
 	curl https://packages.cloud.google.com/apt/doc/apt-key.gpg > /tmp/googlekey.key && \
 	sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add /tmp/googlekey.key && \
 	sudo apt-get update && \
-	sudo apt-get install -y google-cloud-sdk kubectl
+	sudo apt-get install -y google-cloud-sdk kubectl && \
+	wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb && \
+  	sudo dpkg -i /tmp/libpng12.deb && \
+  	rm /tmp/libpng12.deb
 
 RUN mkdir ./.code-server && \
 	mkdir -p ./.code-server/User && \
