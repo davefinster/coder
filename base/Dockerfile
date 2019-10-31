@@ -35,4 +35,4 @@ RUN sudo chown -R coder /home/coder/.local
 
 WORKDIR /home/coder/project
 
-ENTRYPOINT ["dumb-init", "code-server"]
+ENTRYPOINT ["dumb-init", "code-server", "--auth", "none"]
