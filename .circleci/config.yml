@@ -38,6 +38,12 @@ jobs:
           docker build -t davefinster/coder:js .
           docker push davefinster/coder:js
       - type: shell
+        name: Build and Ship Node 8 Image
+        command: |
+          cd js
+          docker build -f Dockerfile-node8 -t davefinster/coder:jsv8 .
+          docker push davefinster/coder:jsv8
+      - type: shell
         name: Build and Ship Latex Image
         command: |
           cd latex
