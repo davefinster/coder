@@ -43,3 +43,9 @@ jobs:
           cd js
           docker build -f Dockerfile-node8 -t davefinster/coder:jsv8 .
           docker push davefinster/coder:jsv8
+      - type: shell
+        name: Build and Ship Go 1.14 with Modules Image
+        command: |
+          cd go114
+          docker build -f Dockerfile-node8 -t davefinster/coder:go114 .
+          docker push davefinster/coder:go114
