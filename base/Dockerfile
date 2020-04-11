@@ -22,7 +22,12 @@ RUN sudo apt-get update && \
 	sudo apt-get install -y google-cloud-sdk kubectl && \
 	wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb && \
   	sudo dpkg -i /tmp/libpng12.deb && \
-  	rm /tmp/libpng12.deb
+  	rm /tmp/libpng12.deb && \
+	curl -O https://download.docker.com/linux/static/stable/x86_64/docker-19.03.8.tgz && \
+	tar -zxvf docker-19.03.8.tgz && \
+	sudo mv docker/docker /usr/local/bin/protoc && \
+	rm -rf docker && \
+	rm -rf docker-19.03.8.tgz
 
 RUN mkdir -p /home/coder/.local/share/code-server/extensions && \
 	mkdir -p /home/coder/.local/share/code-server/User

@@ -6,9 +6,9 @@ FROM davefinster/coder:base
 
 WORKDIR /home/coder
 
-RUN curl -O https://dl.google.com/go/go1.14.1.linux-amd64.tar.gz && \
-	sudo tar -C /usr/local -xzf go1.14.1.linux-amd64.tar.gz && \
-	rm go1.14.1.linux-amd64.tar.gz
+RUN curl -O https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz && \
+	sudo tar -C /usr/local -xzf go1.14.2.linux-amd64.tar.gz && \
+	rm go1.14.2.linux-amd64.tar.gz
 
 COPY --from=0 /root/.vscode/extensions /home/coder/.local/share/code-server/extensions
 
