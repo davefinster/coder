@@ -25,7 +25,7 @@ RUN sudo apt-get update && \
   	rm /tmp/libpng12.deb && \
 	curl -O https://download.docker.com/linux/static/stable/x86_64/docker-19.03.8.tgz && \
 	tar -zxvf docker-19.03.8.tgz && \
-	sudo mv docker/docker /usr/local/bin/protoc && \
+	sudo mv docker/docker /usr/local/bin/docker && \
 	rm -rf docker && \
 	rm -rf docker-19.03.8.tgz
 
