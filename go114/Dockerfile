@@ -8,7 +8,10 @@ WORKDIR /home/coder
 
 RUN curl -O https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz && \
 	sudo tar -C /usr/local -xzf go1.14.2.linux-amd64.tar.gz && \
-	rm go1.14.2.linux-amd64.tar.gz
+	rm go1.14.2.linux-amd64.tar.gz && \
+	curl -O -L https://github.com/golang-migrate/migrate/releases/download/v4.10.0/migrate.linux-amd64.tar.gz && \
+	tar -zxvf migrate.linux-amd64.tar.gz && \
+	sudo mv migrate.linux-amd64 /usr/local/bin/migrate
 
 COPY --from=0 /root/.vscode/extensions /home/coder/.local/share/code-server/extensions
 
