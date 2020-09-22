@@ -26,18 +26,6 @@ jobs:
           docker build  -t davefinster/coder:go114 .
           docker push davefinster/coder:go114
       - type: shell
-        name: Build and Ship go Image
-        command: |
-          cd go
-          docker build -t davefinster/coder:go .
-          docker push davefinster/coder:go
-      - type: shell
-        name: Build and Ship go modules Image
-        command: |
-          cd gomodules
-          docker build -t davefinster/coder:gomodules .
-          docker push davefinster/coder:gomodules
-      - type: shell
         name: Build and Ship JS Image
         command: |
           cd js
