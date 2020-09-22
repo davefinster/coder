@@ -4,8 +4,7 @@ ENV LANG=C.UTF-8 \
     DEBIAN_FRONTEND=noninteractive \
     DEBCONF_NONINTERACTIVE_SEEN=true \
     VSCODE=https://vscode-update.azurewebsites.net/latest/linux-deb-x64/stable \
-    TINI_VERSION=v0.16.1 \
-    GOVERSION=1.9.1
+    TINI_VERSION=v0.16.1
 
 
 RUN apt-get update -qq && \
