@@ -28,6 +28,12 @@ COPY ./settings.json /home/coder/.local/share/code-server/User/settings.json
 
 RUN sudo chown -R coder /home/coder/.local && \
     go get -u -v google.golang.org/protobuf/cmd/protoc-gen-go && \
-    go get -v -v golang.org/x/tools/gopls
+    export GO111MODULE=on && \
+    go get -v -u golang.org/x/tools/gopls@latest && \
+    go get -v -u github.com/uudashr/gopkgs@latest && \
+    go get -v -u github.com/ramya-rao-a/go-outline@latest && \
+    go get -v -u github.com/rogpeppe/godef@latest && \
+    go get -v -u github.com/sqs/goreturns@latest && \
+    go get -v -u golang.org/x/lint/golint@latest
 
 WORKDIR /home/coder/project
