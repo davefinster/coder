@@ -1,7 +1,8 @@
 FROM davefinster/coder:official-vscode
 
 RUN code --user-data-dir=/root --install-extension zhuangtongfa.material-theme && \
-	code --user-data-dir=/root --install-extension zxh404.vscode-proto3
+	code --user-data-dir=/root --install-extension zxh404.vscode-proto3 && \
+    code --user-data-dir=/root --install-extension ms-azuretools.vscode-docker
 
 FROM codercom/code-server:3.5.0
 
@@ -43,3 +44,6 @@ RUN mkdir -p /home/coder/project && \
 WORKDIR /home/coder/project
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh", "--bind-addr", "0.0.0.0:8080", "--auth", "none", "."]
+
+# curl -fsSL https://storage.googleapis.com/golang/go$GO_VERSION.$GOOS-$GOARCH.tar.gz | tar -C /home/coder -xzv
+# export PATH=$PATH:/home/coder/go/bin

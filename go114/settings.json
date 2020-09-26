@@ -4,5 +4,16 @@
     "go.lintTool": "golint",
     "go.useCodeSnippetsOnFunctionSuggest": true,
     "files.eol": "\n",
-    "go.useLanguageServer": true // formatting only supports LF line endings
+    "go.useLanguageServer": true, // formatting only supports LF line endings,
+    "gopls": {
+        "usePlaceholders": true,
+        "completeUnimported": true,
+        "analyses": {
+            "fillreturns": true,
+            "nonewvars": true,
+            "undeclaredname": true,
+            "unusedparams": true
+        },
+        "staticcheck": true
+    }
 }
