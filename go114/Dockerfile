@@ -34,6 +34,9 @@ RUN sudo chown -R coder /home/coder/.local && \
     go get -v -u github.com/ramya-rao-a/go-outline@latest && \
     go get -v -u github.com/rogpeppe/godef@latest && \
     go get -v -u github.com/sqs/goreturns@latest && \
-    go get -v -u golang.org/x/lint/golint@latest
+    go get -v -u golang.org/x/lint/golint@latest && \
+    go get -v -u github.com/uudashr/gopkgs/v2/cmd/gopkgs && \
+    go get -v -u github.com/stamblerre/gocode && \
+    cp /home/coder/go/tools/bin/gocode /home/coder/go/tools/bin/gocode-gomod
 
 WORKDIR /home/coder/project
