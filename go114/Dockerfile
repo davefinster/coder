@@ -37,6 +37,7 @@ RUN sudo chown -R coder /home/coder/.local && \
     go get -v -u golang.org/x/lint/golint@latest && \
     go get -v -u github.com/uudashr/gopkgs/v2/cmd/gopkgs && \
     go get -v -u github.com/stamblerre/gocode && \
-    cp /home/coder/go/tools/bin/gocode /home/coder/go/tools/bin/gocode-gomod
+    cp /home/coder/go/tools/bin/gocode /home/coder/go/tools/bin/gocode-gomod && \
+    go get -v github.com/go-delve/delve/cmd/dlv
 
 WORKDIR /home/coder/project
