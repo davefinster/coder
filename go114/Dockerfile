@@ -6,7 +6,7 @@ FROM davefinster/coder:base
 
 WORKDIR /home/coder
 
-ENV GO_VERSION=1.15.3 \
+ENV GO_VERSION=1.15.5 \
     GOOS=linux \
     GOARCH=amd64 \
     GOROOT=/home/coder/go \
