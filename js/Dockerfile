@@ -13,5 +13,3 @@ RUN curl -O https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.xz && \
 ENV PATH "$PATH:/node/bin"
 
 WORKDIR /home/coder/project
-
-ENTRYPOINT ["dumb-init", "code-server"]
