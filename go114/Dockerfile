@@ -6,7 +6,7 @@ FROM davefinster/coder:base
 
 WORKDIR /home/coder
 
-ENV GO_VERSION=1.15.6 \
+ENV GO_VERSION=1.15.5 \
     GOOS=linux \
     GOARCH=amd64 \
     GOROOT=/home/coder/go \
@@ -29,7 +29,7 @@ COPY ./settings.json /home/coder/.local/share/code-server/User/settings.json
 RUN sudo chown -R 1001:1001 /home/coder/.local && \
     go get -u -v google.golang.org/protobuf/cmd/protoc-gen-go && \
     export GO111MODULE=on && \
-    go get -v -u golang.org/x/tools/gopls@v0.6.1 && \
+    go get -v -u golang.org/x/tools/gopls@master && \
     go get -v -u github.com/uudashr/gopkgs@latest && \
     go get -v -u github.com/ramya-rao-a/go-outline@latest && \
     go get -v -u github.com/rogpeppe/godef@latest && \
