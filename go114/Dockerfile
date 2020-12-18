@@ -26,7 +26,7 @@ ENV PATH "$PATH:/home/coder/go/bin"
 
 COPY ./settings.json /home/coder/.local/share/code-server/User/settings.json
 
-RUN sudo chown -R coder /home/coder/.local && \
+RUN sudo chown -R 1001:1001 /home/coder/.local && \
     go get -u -v google.golang.org/protobuf/cmd/protoc-gen-go && \
     export GO111MODULE=on && \
     go get -v -u golang.org/x/tools/gopls@latest && \
