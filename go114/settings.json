@@ -13,6 +13,7 @@
         "diagnostics": true,
         "documentLink": true
     },
+    "go.useLanguageServer": true,
     "gopls": {
         "usePlaceholders": true,
         "completeUnimported": true,
