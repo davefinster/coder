@@ -4,7 +4,7 @@ RUN code --user-data-dir=/root --install-extension zhuangtongfa.material-theme &
 	code --user-data-dir=/root --install-extension zxh404.vscode-proto3 && \
     code --user-data-dir=/root --install-extension ms-azuretools.vscode-docker
 
-FROM codercom/code-server:3.7.4
+FROM codercom/code-server:3.8.0
 
 WORKDIR /home/coder
 
