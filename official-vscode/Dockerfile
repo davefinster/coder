@@ -9,21 +9,7 @@ ENV LANG=C.UTF-8 \
 
 RUN apt-get update -qq && \
     echo 'Installing OS dependencies' && \
-    apt-get install -qq -y --fix-missing \ 
-      sudo software-properties-common libxext-dev libxrender-dev libxslt1.1 \
-      libgconf-2-4 libnotify4 libnspr4 libnss3 libnss3-nssdb \
-      libxtst-dev libgtk2.0-0 libcanberra-gtk-module \
-      libxss1 \
-      libxkbfile1 \
-      git curl tree locate net-tools telnet \
-      emacs ruby make bash-completion \
-      bash-completion python python-pip meld \
-      nodejs-legacy npm \
-      libxkbfile1 \
-      libxss1 \
-      locales netcat \
-    && \
-    npm install -g npm && \
+    apt-get install -qq -y --fix-missing sudo software-properties-common libxext-dev libxrender-dev libxslt1.1 libgconf-2-4 libnotify4 libnspr4 libnss3 libnss3-nssdb libxtst-dev libgtk2.0-0 libcanberra-gtk-module libxss1 libxkbfile1 git curl tree locate net-tools telnet emacs ruby make bash-completion bash-completion python python-pip meld nodejs-legacy npm libxkbfile1 libxss1 locales netcat && \
     echo 'Cleaning up' && \
     apt-get clean -qq -y && \
     apt-get autoclean -qq -y && \
